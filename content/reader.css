@@ -1,0 +1,358 @@
+/* Documentation Reader Styles */
+
+:root {
+  --doc-reader-font-size: 16px;
+  --doc-reader-content-width: 800px;
+  --doc-reader-line-height: 1.6;
+  --doc-reader-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Light theme colors */
+  --doc-reader-bg-light: #ffffff;
+  --doc-reader-text-light: #333333;
+  --doc-reader-secondary-light: #666666;
+  --doc-reader-border-light: #e0e0e0;
+
+  /* Dark theme colors */
+  --doc-reader-bg-dark: #1a1a1a;
+  --doc-reader-text-dark: #e0e0e0;
+  --doc-reader-secondary-dark: #b0b0b0;
+  --doc-reader-border-dark: #404040;
+
+  /* TOC colors */
+  --doc-reader-toc-bg-light: rgba(255, 255, 255, 0.95);
+  --doc-reader-toc-bg-dark: rgba(26, 26, 26, 0.95);
+}
+
+/* Reader Mode Active */
+body.doc-reader-active {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Theme */
+body.doc-reader-theme-light {
+  background-color: var(--doc-reader-bg-light) !important;
+  color: var(--doc-reader-text-light) !important;
+}
+
+/* Dark Theme */
+body.doc-reader-theme-dark {
+  background-color: var(--doc-reader-bg-dark) !important;
+  color: var(--doc-reader-text-dark) !important;
+}
+
+/* Main Content Styling */
+.doc-reader-content {
+  max-width: var(--doc-reader-content-width) !important;
+  margin: 40px auto !important;
+  padding: 40px 20px !important;
+  font-family: var(--doc-reader-font-family) !important;
+  font-size: var(--doc-reader-font-size) !important;
+  line-height: var(--doc-reader-line-height) !important;
+}
+
+/* Typography improvements */
+.doc-reader-content h1,
+.doc-reader-content h2,
+.doc-reader-content h3,
+.doc-reader-content h4,
+.doc-reader-content h5,
+.doc-reader-content h6 {
+  margin-top: 1.5em !important;
+  margin-bottom: 0.5em !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+
+.doc-reader-content h1 {
+  font-size: 2em !important;
+}
+
+.doc-reader-content h2 {
+  font-size: 1.5em !important;
+}
+
+.doc-reader-content h3 {
+  font-size: 1.25em !important;
+}
+
+.doc-reader-content p {
+  margin-bottom: 1em !important;
+}
+
+.doc-reader-content a {
+  text-decoration: underline !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.doc-reader-content a:hover {
+  opacity: 0.7 !important;
+}
+
+.doc-reader-content code {
+  padding: 2px 6px !important;
+  border-radius: 3px !important;
+  font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace !important;
+  font-size: 0.9em !important;
+}
+
+body.doc-reader-theme-light .doc-reader-content code {
+  background-color: #f5f5f5 !important;
+  color: #d73a49 !important;
+}
+
+body.doc-reader-theme-dark .doc-reader-content code {
+  background-color: #2d2d2d !important;
+  color: #f97583 !important;
+}
+
+.doc-reader-content pre {
+  padding: 16px !important;
+  border-radius: 6px !important;
+  overflow-x: auto !important;
+  margin: 1em 0 !important;
+}
+
+body.doc-reader-theme-light .doc-reader-content pre {
+  background-color: #f6f8fa !important;
+}
+
+body.doc-reader-theme-dark .doc-reader-content pre {
+  background-color: #2d2d2d !important;
+}
+
+.doc-reader-content pre code {
+  background: none !important;
+  padding: 0 !important;
+  color: inherit !important;
+}
+
+.doc-reader-content ul,
+.doc-reader-content ol {
+  margin: 1em 0 !important;
+  padding-left: 2em !important;
+}
+
+.doc-reader-content li {
+  margin-bottom: 0.5em !important;
+}
+
+.doc-reader-content blockquote {
+  margin: 1em 0 !important;
+  padding-left: 1em !important;
+  border-left: 4px solid var(--doc-reader-border-light) !important;
+}
+
+body.doc-reader-theme-dark .doc-reader-content blockquote {
+  border-left-color: var(--doc-reader-border-dark) !important;
+}
+
+.doc-reader-content table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin: 1em 0 !important;
+}
+
+.doc-reader-content th,
+.doc-reader-content td {
+  padding: 8px 12px !important;
+  border: 1px solid var(--doc-reader-border-light) !important;
+}
+
+body.doc-reader-theme-dark .doc-reader-content th,
+body.doc-reader-theme-dark .doc-reader-content td {
+  border-color: var(--doc-reader-border-dark) !important;
+}
+
+.doc-reader-content th {
+  font-weight: 600 !important;
+}
+
+body.doc-reader-theme-light .doc-reader-content th {
+  background-color: #f5f5f5 !important;
+}
+
+body.doc-reader-theme-dark .doc-reader-content th {
+  background-color: #2d2d2d !important;
+}
+
+/* Table of Contents Panel */
+.doc-reader-toc-panel {
+  position: fixed;
+  top: 80px;
+  right: -350px;
+  width: 300px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 8px 0 0 8px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10000;
+  transition: right 0.3s ease;
+}
+
+body.doc-reader-theme-light .doc-reader-toc-panel {
+  background-color: var(--doc-reader-toc-bg-light);
+  border-left: 1px solid var(--doc-reader-border-light);
+}
+
+body.doc-reader-theme-dark .doc-reader-toc-panel {
+  background-color: var(--doc-reader-toc-bg-dark);
+  border-left: 1px solid var(--doc-reader-border-dark);
+}
+
+.doc-reader-toc-panel.visible {
+  right: 0;
+}
+
+.doc-reader-toc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--doc-reader-border-light);
+}
+
+body.doc-reader-theme-dark .doc-reader-toc-header {
+  border-bottom-color: var(--doc-reader-border-dark);
+}
+
+.doc-reader-toc-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.doc-reader-toc-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+body.doc-reader-theme-light .doc-reader-toc-close {
+  color: var(--doc-reader-text-light);
+}
+
+body.doc-reader-theme-dark .doc-reader-toc-close {
+  color: var(--doc-reader-text-dark);
+}
+
+.doc-reader-toc-close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.doc-reader-theme-dark .doc-reader-toc-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.doc-reader-toc-content {
+  font-size: 14px;
+}
+
+.doc-reader-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.doc-reader-toc-item {
+  margin: 0;
+}
+
+.doc-reader-toc-link {
+  display: block;
+  padding: 6px 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+body.doc-reader-theme-light .doc-reader-toc-link {
+  color: var(--doc-reader-text-light);
+}
+
+body.doc-reader-theme-dark .doc-reader-toc-link {
+  color: var(--doc-reader-text-dark);
+}
+
+.doc-reader-toc-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.doc-reader-theme-dark .doc-reader-toc-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.doc-reader-toc-link.active {
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.doc-reader-theme-dark .doc-reader-toc-link.active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Nested TOC levels */
+.doc-reader-toc-level-1 { padding-left: 0; }
+.doc-reader-toc-level-2 { padding-left: 12px; }
+.doc-reader-toc-level-3 { padding-left: 24px; }
+.doc-reader-toc-level-4 { padding-left: 36px; }
+.doc-reader-toc-level-5 { padding-left: 48px; }
+.doc-reader-toc-level-6 { padding-left: 60px; }
+
+.doc-reader-toc-empty {
+  color: var(--doc-reader-secondary-light);
+  font-style: italic;
+  margin: 0;
+}
+
+body.doc-reader-theme-dark .doc-reader-toc-empty {
+  color: var(--doc-reader-secondary-dark);
+}
+
+/* Scrollbar styling for TOC */
+.doc-reader-toc-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.doc-reader-toc-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.doc-reader-toc-panel::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+body.doc-reader-theme-dark .doc-reader-toc-panel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.doc-reader-toc-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+body.doc-reader-theme-dark .doc-reader-toc-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .doc-reader-content {
+    padding: 20px 15px !important;
+  }
+
+  .doc-reader-toc-panel {
+    width: 250px;
+    right: -270px;
+  }
+}

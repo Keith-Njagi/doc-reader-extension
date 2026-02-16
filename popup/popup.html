@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation Reader Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>Documentation Reader</h1>
+    </header>
+
+    <main class="popup-content">
+      <!-- Reader Mode Toggle -->
+      <div class="setting-group">
+        <div class="setting-row">
+          <label for="reader-toggle" class="setting-label">
+            <span class="label-text">Reader Mode</span>
+            <span class="label-description">Clean, distraction-free reading</span>
+          </label>
+          <label class="toggle-switch">
+            <input type="checkbox" id="reader-toggle">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Font Size -->
+      <div class="setting-group">
+        <label for="font-size" class="setting-label">
+          <span class="label-text">Font Size</span>
+          <span class="label-value" id="font-size-value">16px</span>
+        </label>
+        <div class="slider-container">
+          <input type="range" id="font-size" min="12" max="24" value="16" step="1">
+          <div class="slider-labels">
+            <span>12px</span>
+            <span>24px</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Width -->
+      <div class="setting-group">
+        <label for="content-width" class="setting-label">
+          <span class="label-text">Content Width</span>
+          <span class="label-value" id="content-width-value">800px</span>
+        </label>
+        <div class="slider-container">
+          <input type="range" id="content-width" min="600" max="1200" value="800" step="50">
+          <div class="slider-labels">
+            <span>600px</span>
+            <span>1200px</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme -->
+      <div class="setting-group">
+        <label class="setting-label">
+          <span class="label-text">Theme</span>
+        </label>
+        <div class="theme-buttons">
+          <button class="theme-btn" data-theme="auto">
+            <span class="theme-icon">🌓</span>
+            <span>Auto</span>
+          </button>
+          <button class="theme-btn" data-theme="light">
+            <span class="theme-icon">☀️</span>
+            <span>Light</span>
+          </button>
+          <button class="theme-btn" data-theme="dark">
+            <span class="theme-icon">🌙</span>
+            <span>Dark</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Show TOC -->
+      <div class="setting-group">
+        <div class="setting-row">
+          <label for="show-toc" class="setting-label">
+            <span class="label-text">Show Table of Contents</span>
+            <span class="label-description">Display navigation panel</span>
+          </label>
+          <label class="toggle-switch">
+            <input type="checkbox" id="show-toc" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Keyboard Shortcuts -->
+      <div class="setting-group">
+        <details class="shortcuts-details">
+          <summary class="setting-label">
+            <span class="label-text">Keyboard Shortcuts</span>
+          </summary>
+          <div class="shortcuts-list">
+            <div class="shortcut-item">
+              <span class="shortcut-key">Ctrl+Shift+R</span>
+              <span class="shortcut-desc">Toggle reader mode</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="shortcut-key">Ctrl+Shift+T</span>
+              <span class="shortcut-desc">Toggle table of contents</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="shortcut-key">Ctrl+Shift+[</span>
+              <span class="shortcut-desc">Decrease font size</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="shortcut-key">Ctrl+Shift+]</span>
+              <span class="shortcut-desc">Increase font size</span>
+            </div>
+            <div class="shortcut-item">
+              <span class="shortcut-key">Ctrl+Shift+D</span>
+              <span class="shortcut-desc">Toggle dark mode</span>
+            </div>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer class="popup-footer">
+      <p class="footer-text">Enhance your documentation reading experience</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
