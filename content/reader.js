@@ -261,7 +261,11 @@ class DocumentationReader {
     // Create content
     const content = document.createElement('div');
     content.className = 'doc-reader-toc-content';
-    content.innerHTML = this.tocExtractor.generateHTML(tocItems);
+
+    const tocDOM = this.tocExtractor.generateDOM(tocItems);
+    if (tocDOM) {
+      content.appendChild(tocDOM);
+    }
 
     this.tocPanel.appendChild(header);
     this.tocPanel.appendChild(content);

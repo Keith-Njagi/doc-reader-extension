@@ -77,55 +77,58 @@ class TOCExtractor {
   }
 
   /**
-   * Generate HTML for TOC
+   * Generate DOM element for TOC
    * @param {Array} tocItems - Array of TOC items
-   * @returns {string} HTML string for TOC
+   * @returns {HTMLElement} DOM element for TOC
    */
-  generateHTML(tocItems) {
+  generateDOM(tocItems) {
     if (tocItems.length === 0) {
-      return '<p class="doc-reader-toc-empty">No headings found</p>';
+      const empty = document.createElement('p');
+      empty.className = 'doc-reader-toc-empty';
+      empty.textContent = 'No headings found';
+      return empty;
     }
 
     const hierarchy = this.buildHierarchy(tocItems);
-    return this.renderHierarchy(hierarchy);
+    return this.renderHierarchyDOM(hierarchy);
   }
 
   /**
-   * Render hierarchical TOC as HTML
+   * Render hierarchical TOC as DOM
    * @param {Array} items - Hierarchical TOC items
-   * @returns {string} HTML string
+   * @returns {HTMLElement} DOM element
    */
-  renderHierarchy(items) {
+  renderHierarchyDOM(items) {
     if (items.length === 0) {
-      return '';
+      return null;
     }
 
-    let html = '<ul class="doc-reader-toc-list">';
+    const ul = document.createElement('ul');
+    ul.className = 'doc-reader-toc-list';
 
     items.forEach(item => {
-      html += `<li class="doc-reader-toc-item doc-reader-toc-level-${item.level}">`;
-      html += `<a href="#${item.id}" class="doc-reader-toc-link" data-id="${item.id}">${this.escapeHTML(item.text)}</a>`;
+      const li = document.createElement('li');
+      li.className = `doc-reader-toc-item doc-reader-toc-level-${item.level}`;
+
+      const link = document.createElement('a');
+      link.href = `#${item.id}`;
+      link.className = 'doc-reader-toc-link';
+      link.setAttribute('data-id', item.id);
+      link.textContent = item.text;
+
+      li.appendChild(link);
 
       if (item.children && item.children.length > 0) {
-        html += this.renderHierarchy(item.children);
+        const childUl = this.renderHierarchyDOM(item.children);
+        if (childUl) {
+          li.appendChild(childUl);
+        }
       }
 
-      html += '</li>';
+      ul.appendChild(li);
     });
 
-    html += '</ul>';
-    return html;
-  }
-
-  /**
-   * Escape HTML special characters
-   * @param {string} text - Text to escape
-   * @returns {string} Escaped text
-   */
-  escapeHTML(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+    return ul;
   }
 }
 
