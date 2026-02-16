@@ -73,8 +73,8 @@ doc-reader-extension/
 - ✅ **Keyboard Shortcuts**
   - `Ctrl+Shift+R` - Toggle reader mode
   - `Ctrl+Shift+T` - Toggle TOC
-  - `Ctrl+Shift+[` - Decrease font size
-  - `Ctrl+Shift+]` - Increase font size
+  - `Ctrl+Shift+,` - Decrease font size
+  - `Ctrl+Shift+.` - Increase font size
   - `Ctrl+Shift+D` - Toggle theme
 
 - ✅ **Settings Persistence**

@@ -12,8 +12,8 @@ Firefox → about:debugging → This Firefox → Load Temporary Add-on → Selec
 |----------|--------|
 | `Ctrl+Shift+R` | Toggle reader mode ON/OFF |
 | `Ctrl+Shift+T` | Show/hide table of contents |
-| `Ctrl+Shift+[` | Make text smaller (-2px) |
-| `Ctrl+Shift+]` | Make text larger (+2px) |
+| `Ctrl+Shift+,` | Make text smaller (-2px) |
+| `Ctrl+Shift+.` | Make text larger (+2px) |
 | `Ctrl+Shift+D` | Switch theme (auto→light→dark→auto) |
 
 *macOS: Use `Cmd` instead of `Ctrl`*

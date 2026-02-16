@@ -42,8 +42,8 @@ There are three ways to activate reader mode:
 |----------|--------|
 | `Ctrl+Shift+R` | Toggle reader mode |
 | `Ctrl+Shift+T` | Toggle table of contents |
-| `Ctrl+Shift+[` | Decrease font size |
-| `Ctrl+Shift+]` | Increase font size |
+| `Ctrl+Shift+,` | Decrease font size |
+| `Ctrl+Shift+.` | Increase font size |
 | `Ctrl+Shift+D` | Cycle through themes (auto → light → dark) |
 
 ### Settings

@@ -94,8 +94,8 @@ doc-reader-extension/
 ```
 Ctrl+Shift+R  →  Toggle reader mode ON/OFF
 Ctrl+Shift+T  →  Show/hide table of contents
-Ctrl+Shift+[  →  Decrease font size
-Ctrl+Shift+]  →  Increase font size
+Ctrl+Shift+,  →  Decrease font size
+Ctrl+Shift+.  →  Increase font size
 Ctrl+Shift+D  →  Cycle themes (auto→light→dark)
 ```
 

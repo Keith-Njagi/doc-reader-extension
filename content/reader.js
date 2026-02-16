@@ -242,16 +242,29 @@ class DocumentationReader {
     // Create TOC panel
     this.tocPanel = document.createElement('div');
     this.tocPanel.className = 'doc-reader-toc-panel';
-    this.tocPanel.innerHTML = `
-      <div class="doc-reader-toc-header">
-        <h3>Contents</h3>
-        <button class="doc-reader-toc-close" aria-label="Close TOC">&times;</button>
-      </div>
-      <div class="doc-reader-toc-content">
-        ${this.tocExtractor.generateHTML(tocItems)}
-      </div>
-    `;
 
+    // Create header
+    const header = document.createElement('div');
+    header.className = 'doc-reader-toc-header';
+
+    const title = document.createElement('h3');
+    title.textContent = 'Contents';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'doc-reader-toc-close';
+    closeBtn.setAttribute('aria-label', 'Close TOC');
+    closeBtn.innerHTML = '&times;';
+
+    header.appendChild(title);
+    header.appendChild(closeBtn);
+
+    // Create content
+    const content = document.createElement('div');
+    content.className = 'doc-reader-toc-content';
+    content.innerHTML = this.tocExtractor.generateHTML(tocItems);
+
+    this.tocPanel.appendChild(header);
+    this.tocPanel.appendChild(content);
     document.body.appendChild(this.tocPanel);
 
     // Add event listeners
